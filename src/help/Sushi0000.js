@@ -1,18 +1,19 @@
 import React from "react";
 
-function Sushi({ sushi, onHandleEatenSushi }) {
-  function handleEatenSushi() {
+function Sushi({ sushi, onEatSushi }) {
+  function handleClick() {
     if (!sushi.isEaten) {
-      onHandleEatenSushi(sushi);
+      console.log(!sushi.isEaten);
+      onEatSushi(sushi);
     } else {
-      alert("you are super hungry, leave the empty plate alone");
+      alert("plase dont eat the empty plates");
     }
   }
   return (
     <div className="sushi">
-      <div className="plate" onClick={handleEatenSushi}>
+      <div className="plate" onClick={handleClick}>
         {/* Tell me if this sushi has been eaten! */}
-        {false ? null : (
+        {sushi.isEaten ? null : (
           <img src={sushi.img_url} alt={sushi.name} width="100%" />
         )}
       </div>
